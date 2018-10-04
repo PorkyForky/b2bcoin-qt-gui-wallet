@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=B2Bcoin QT GUI Wallet
+Comment=B2B wallet
+Exec=B2Bcoin %U
+Terminal=false
+Type=Application
+Icon=b2bcoin
+MimeType=x-scheme-handler/b2bcoin;
+Categories=Office;Finance;
