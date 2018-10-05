@@ -128,6 +128,7 @@ private:
   Q_SLOT void importKey();
   Q_SLOT void aboutQt();
   Q_SLOT void about();
+  Q_SLOT void releaseNotes();
   Q_SLOT void copyAddress();
   Q_SLOT void copyBalance();
   Q_SLOT void setStartOnLoginEnabled(bool _enable);

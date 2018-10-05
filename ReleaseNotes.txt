@@ -1,3 +1,5 @@
-Release notes 1.0.0 - (04-Oct-2018)
+Release notes 1.0.1 - (04-Oct-2018)
+- Added Release Notes in help section of the wallet
 
+Release notes 1.0.0 - (04-Oct-2018)
 - First release of B2Bcoin QT GUI wallet

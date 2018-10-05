@@ -34,6 +34,7 @@
 #include "Settings/Settings.h"
 #include "WalletLogger/WalletLogger.h"
 #include "Gui/Common/AboutDialog.h"
+#include "Gui/Common/ReleaseNotesDialog.h"
 #include "Gui/Common/ChangePasswordDialog.h"
 #include "Gui/Common/NewPasswordDialog.h"
 #include "Gui/Common/KeyDialog.h"
@@ -750,6 +751,11 @@ void MainWindow::aboutQt() {
 
 void MainWindow::about() {
   AboutDialog dlg(this);
+  dlg.exec();
+}
+
+void MainWindow::releaseNotes() {
+  ReleaseNotesDialog dlg(this);
   dlg.exec();
 }
 

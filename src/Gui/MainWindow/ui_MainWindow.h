@@ -50,6 +50,7 @@ public:
     QAction *m_changePasswordAction;
     QAction *m_aboutIntensecoinAction;
     QAction *m_aboutQtAction;
+    QAction *m_releaseNotesAction;
     QAction *m_backupWalletAction;
     QAction *m_autostartAction;
     QAction *m_minimizeToTrayAction;
@@ -165,6 +166,9 @@ public:
         m_aboutQtAction = new QAction(MainWindow);
         m_aboutQtAction->setObjectName(QStringLiteral("m_aboutQtAction"));
         m_aboutQtAction->setEnabled(true);
+        m_releaseNotesAction = new QAction(MainWindow);
+        m_releaseNotesAction->setObjectName(QStringLiteral("m_releaseNotesAction"));
+        m_releaseNotesAction->setEnabled(true);
         m_backupWalletAction = new QAction(MainWindow);
         m_backupWalletAction->setObjectName(QStringLiteral("m_backupWalletAction"));
         m_backupWalletAction->setEnabled(true);
@@ -589,16 +593,18 @@ public:
         menuHelp->addAction(m_reportIssueAction);
         menuHelp->addAction(m_aboutIntensecoinAction);
         menuHelp->addAction(m_aboutQtAction);
+        menuHelp->addAction(m_releaseNotesAction);
 
         retranslateUi(MainWindow);
         QObject::connect(m_createWalletAction, SIGNAL(triggered()), MainWindow, SLOT(createWallet()));
         QObject::connect(m_openWalletAction, SIGNAL(triggered()), MainWindow, SLOT(openWallet()));
         QObject::connect(m_encryptWalletAction, SIGNAL(triggered()), MainWindow, SLOT(encryptWallet()));
         QObject::connect(m_changePasswordAction, SIGNAL(triggered()), MainWindow, SLOT(encryptWallet()));
-		QObject::connect(m_removePendingTxAction, SIGNAL(triggered()), MainWindow, SLOT(removePendingTx()));
+        QObject::connect(m_removePendingTxAction, SIGNAL(triggered()), MainWindow, SLOT(removePendingTx()));
         QObject::connect(m_aboutQtAction, SIGNAL(triggered()), MainWindow, SLOT(aboutQt()));
         QObject::connect(m_backupWalletAction, SIGNAL(triggered()), MainWindow, SLOT(backupWallet()));
         QObject::connect(m_aboutIntensecoinAction, SIGNAL(triggered()), MainWindow, SLOT(about()));
+        QObject::connect(m_releaseNotesAction, SIGNAL(triggered()), MainWindow, SLOT(releaseNotes()));
         QObject::connect(m_overviewButton, SIGNAL(toggled(bool)), m_overviewFrame, SLOT(setVisible(bool)));
         QObject::connect(m_transactionsButton, SIGNAL(toggled(bool)), m_transactionsFrame, SLOT(setVisible(bool)));
         QObject::connect(m_addressBookButton, SIGNAL(toggled(bool)), m_addressBookFrame, SLOT(setVisible(bool)));
@@ -636,6 +642,7 @@ public:
 #endif // QT_NO_TOOLTIP
         m_aboutIntensecoinAction->setText(QApplication::translate("MainWindow", "About B2Bcoin", Q_NULLPTR));
         m_aboutQtAction->setText(QApplication::translate("MainWindow", "About Qt", Q_NULLPTR));
+        m_releaseNotesAction->setText(QApplication::translate("MainWindow", "Release Notes", Q_NULLPTR));
         m_backupWalletAction->setText(QApplication::translate("MainWindow", "Backup wallet", Q_NULLPTR));
         m_autostartAction->setText(QApplication::translate("MainWindow", "Start on system login", Q_NULLPTR));
         m_minimizeToTrayAction->setText(QApplication::translate("MainWindow", "Minimize to tray", Q_NULLPTR));

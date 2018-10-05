@@ -861,6 +861,7 @@
     <addaction name="m_reportIssueAction"/>
     <addaction name="m_aboutIntensecoinAction"/>
     <addaction name="m_aboutQtAction"/>
+    <addaction name="m_releaseNotesAction"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSettings"/>
@@ -930,6 +931,14 @@
    </property>
    <property name="text">
     <string>About Qt</string>
+   </property>
+  </action>
+  <action name="m_releaseNotesAction">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Release Notes</string>
    </property>
   </action>
   <action name="m_backupWalletAction">
@@ -1201,6 +1210,22 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>about()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>459</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_releaseNotesAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>releaseNotes()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -1525,6 +1550,7 @@
   <slot>backupWallet()</slot>
   <slot>showLog()</slot>
   <slot>about()</slot>
+  <slot>releaseNotes()</slot>
   <slot>copyAddress()</slot>
   <slot>setStartOnLoginEnabled(bool)</slot>
   <slot>setMinimizeToTrayEnabled(bool)</slot>
