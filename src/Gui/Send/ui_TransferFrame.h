@@ -146,9 +146,9 @@ public:
 "  border-color: #ef3131;\n"
 "}"));
         m_sendAmountSpin->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
-        m_sendAmountSpin->setSuffix(QStringLiteral("BCN"));
-        m_sendAmountSpin->setDecimals(8);
-        m_sendAmountSpin->setMaximum(5000);
+        m_sendAmountSpin->setSuffix(QStringLiteral("B2B"));
+        m_sendAmountSpin->setDecimals(12);
+        m_sendAmountSpin->setMaximum(100000);
 
         gridLayout_2->addWidget(m_sendAmountSpin, 1, 0, 1, 1);
 

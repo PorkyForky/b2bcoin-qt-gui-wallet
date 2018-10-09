@@ -241,7 +241,7 @@ bool WalletApplication::initCryptoNoteAdapter() {
   for (;;) {
     if (m_splash != nullptr) {
       m_splash->show();
-      m_splash->showMessage(QObject::tr("B2Bcoin QT GUI Wallet v1.0.1 - Loading..."), Qt::AlignLeft | Qt::AlignBottom, Qt::white);
+      m_splash->showMessage(QObject::tr("B2Bcoin QT GUI Wallet v1.0.2 - Loading..."), Qt::AlignLeft | Qt::AlignBottom, Qt::white);
       if (m_logWatcher == nullptr) {
         m_logWatcher = new LogFileWatcher(Settings::instance().getDataDir().absoluteFilePath(CORE_LOG_FILE_NAME), this);
         connect(m_logWatcher, &LogFileWatcher::newLogStringSignal, this, &WalletApplication::newLogString);

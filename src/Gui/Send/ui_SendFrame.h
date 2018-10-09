@@ -152,12 +152,12 @@ public:
         m_feeSpin = new QDoubleSpinBox(m_sendFeeFrame);
         m_feeSpin->setObjectName(QStringLiteral("m_feeSpin"));
         m_feeSpin->setButtonSymbols(QAbstractSpinBox::UpDownArrows);
-        m_feeSpin->setSuffix(QStringLiteral("BCN"));
-        m_feeSpin->setDecimals(8);
-        m_feeSpin->setMinimum(0.001);
+        m_feeSpin->setSuffix(QStringLiteral("B2B"));
+        m_feeSpin->setDecimals(12);
+        m_feeSpin->setMinimum(0.000001);
         m_feeSpin->setMaximum(10);
-        m_feeSpin->setSingleStep(0.001);
-        m_feeSpin->setValue(0.001);
+        m_feeSpin->setSingleStep(0.000001);
+        m_feeSpin->setValue(0.000001);
 
         gridLayout_2->addWidget(m_feeSpin, 1, 0, 1, 1);
 
@@ -192,7 +192,7 @@ public:
 
         m_mixinSpin = new QSpinBox(m_mixinFrame);
         m_mixinSpin->setObjectName(QStringLiteral("m_mixinSpin"));
-        m_mixinSpin->setMaximum(0);
+        m_mixinSpin->setMaximum(6);
 
         gridLayout->addWidget(m_mixinSpin, 0, 1, 1, 1);
 
@@ -203,9 +203,9 @@ public:
         m_mixinSlider = new QSlider(m_mixinFrame);
         m_mixinSlider->setObjectName(QStringLiteral("m_mixinSlider"));
         m_mixinSlider->setMaximumSize(QSize(16777215, 16777215));
-        m_mixinSlider->setMaximum(0);
-        m_mixinSlider->setPageStep(0);
-        m_mixinSlider->setValue(0);
+        m_mixinSlider->setMaximum(6);
+        m_mixinSlider->setPageStep(1);
+        m_mixinSlider->setValue(3);
         m_mixinSlider->setTracking(false);
         m_mixinSlider->setOrientation(Qt::Horizontal);
 

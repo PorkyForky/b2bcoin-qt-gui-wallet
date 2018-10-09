@@ -209,13 +209,13 @@
         <enum>QAbstractSpinBox::UpDownArrows</enum>
        </property>
        <property name="suffix">
-        <string notr="true">BCN</string>
+        <string notr="true">B2B</string>
        </property>
        <property name="decimals">
-        <number>8</number>
+        <number>12</number>
        </property>
        <property name="maximum">
-        <double>5000.000000000000000</double>
+        <double>100000.000000000000</double>
        </property>
       </widget>
      </item>

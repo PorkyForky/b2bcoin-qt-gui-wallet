@@ -83,7 +83,7 @@ public:
     void retranslateUi(QDialog *ReleaseNotesDialog)
     {
         ReleaseNotesDialog->setWindowTitle(QApplication::translate("ReleaseNotesDialog", "Release Notes", 0));
-        m_releaseNotesLabel->setText(QApplication::translate("ReleaseNotesDialog", "<html><head/><body><p><span style=\" font-family:'Open Sans'; font-size:16px;\">Release Notes</span></p><br><p><span style=\" font-family:'Consolas'; font-size:14px;\">v1.0.1 - (04-Oct-2018)<br>- Added Release Notes in help section of the wallet</span></p><p><span style=\" font-family:'Consolas'; font-size:14px;\">v1.0.0 - (04-Oct-2018)<br>- First release of B2Bcoin QT GUI wallet</span></p></body></html>", 0));
+        m_releaseNotesLabel->setText(QApplication::translate("ReleaseNotesDialog", "<html><head/><body><p><span style=\" font-family:'Open Sans'; font-size:16px;\">Release Notes</span></p><br><p><span style=\" font-family:'Consolas'; font-size:14px;\">v1.0.2 - (09-Oct-2018)<br>- MIXIN is now working to set<br>- Standard TX fee changed from 0.001 to 0.000001 B2B<br>- Max amount to send changed from 5000 to 100000 B2B</span></p><p><span style=\" font-family:'Consolas'; font-size:14px;\">v1.0.1 - (04-Oct-2018)<br>- Added Release Notes in help section of the wallet</span></p><p><span style=\" font-family:'Consolas'; font-size:14px;\">v1.0.0 - (04-Oct-2018)<br>- First release of B2Bcoin QT GUI wallet</span></p></body></html>", 0));
         m_okButton->setText(QApplication::translate("ReleaseNotesDialog", "Close", 0));
     } // retranslateUi
 

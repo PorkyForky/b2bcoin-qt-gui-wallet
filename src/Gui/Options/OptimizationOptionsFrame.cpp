@@ -35,7 +35,7 @@ namespace {
 const int MIN_THRESHOLD_ORDER_VALUE = 0;
 const int MAX_THRESHOLD_ORDER_VALUE = 6;
 const int MIN_MIXIN_VALUE = 0;
-const int MAX_MIXIN_VALUE = 5;
+const int MAX_MIXIN_VALUE = 6;
 const quint64 MINUTE_MSECS = 1000 * 60;
 const quint64 HOUR_MSECS = MINUTE_MSECS * 60;
 const char OPTIMIZATION_OPTIONS_STYLE_SHEET_TEMPLATE[] =
