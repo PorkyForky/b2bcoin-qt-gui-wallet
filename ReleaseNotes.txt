@@ -1,3 +1,6 @@
+Release notes 1.0.3 - (16-Oct-2018)
+- Fixed 0 balance and 0 transactions after a wallet reset
+
 Release notes 1.0.2 - (09-Oct-2018)
 - MIXIN is now working to set
 - Standard TX fee changed from 0.001 to 0.000001 B2B
