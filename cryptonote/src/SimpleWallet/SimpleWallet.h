@@ -85,8 +85,13 @@ bool new_wallet(Crypto::SecretKey &secret_key, Crypto::SecretKey &view_key, cons
     bool stop_mining(const std::vector<std::string> &args);
     bool show_balance(const std::vector<std::string> &args = std::vector<std::string>());
     bool export_keys(const std::vector<std::string> &args = std::vector<std::string>());
+    bool export_cli_key(const std::vector<std::string> &args = std::vector<std::string>());
+    bool export_gui_key(const std::vector<std::string> &args = std::vector<std::string>());
+    bool export_tracking_key(const std::vector<std::string> &args = std::vector<std::string>());
     bool show_incoming_transfers(const std::vector<std::string> &args);
+    bool show_outgoing_transfers(const std::vector<std::string> &args);
     bool show_payments(const std::vector<std::string> &args);
+    bool generate_payment_id(const std::vector<std::string> &args);
     bool show_blockchain_height(const std::vector<std::string> &args);
     bool listTransfers(const std::vector<std::string> &args);
     bool transfer(const std::vector<std::string> &args);
@@ -165,7 +170,6 @@ std::string m_import_new;
 uint64_t m_default_fee;
 
     std::string m_wallet_file;
-    bool sync_from_zero;
 
     std::unique_ptr<std::promise<std::error_code>> m_initResultPromise;
 

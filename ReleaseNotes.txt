@@ -1,3 +1,6 @@
+Release notes 1.0.4 - (26-Nov-2018)
+- Added more checkpoints to sync with the correct chain
+
 Release notes 1.0.3 - (16-Oct-2018)
 - Fixed 0 balance and 0 transactions after a wallet reset
 

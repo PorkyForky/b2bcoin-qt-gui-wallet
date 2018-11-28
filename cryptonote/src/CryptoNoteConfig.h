@@ -175,9 +175,19 @@ struct CheckpointData {
 };
 
 const std::initializer_list<CheckpointData> CHECKPOINTS = { 
-  {10000, "36b4144839124eb86a4656cb4ba97fd98a616a493f98a32ccd377bd0c55e85f3"}
-, {100000, "fe4ddb36465bd3d3c734c5982b1f6e7f7bb4ec82a9c7516fde6e3a383d347c82"} // Make sure we are on correct blockchain after adding ZAWY
-, {240000, "0255e18eaad41f16179ff5a7a5395779d4cbbffe8c99ff5db431b35530434cba"} // Make sure we are on correct blockchain after adding LWMA
+  {32000, "e7ae994ab205bbd069445da11b5c64fc7d9ca42a51a0071f7011f6db44d77cea"}
+, {64000, "1d0a8aad28fd92d17d214e552c7465d19e08cd7fa1f723d8de7f559d4f347302"}
+, {94177, "197ee8147ea9f9a9af7a743602ace0fa852a2da36b766b2f2803714fc5ed1f25"}  // Make sure we are on correct chain after adding ZAWY
+, {96000, "caa5246b052594a879f3f14389c087b61c0d551e2286d83a18c17705402f8765"}
+, {128000, "04741eeb627a18862bf78184a3f17ace4a68188b74b87d449505984615a8e1a5"}
+, {160000, "793ef67bddc5cb70dd46da1e7ee8854495070197b4f724a732bca6e612eb46e0"}
+, {192000, "41c3f63ac25cc804dcd3e05903df36928df4ea5a15cfc409e106b2cd9efd9710"}
+, {224000, "1bf3a0336d5b76158030596844a50ca2da8fdc4c8d2f1eaff76d3763c5ff066b"}
+, {235971, "83ac894283cb5dc6206a9248d947c6c71e17883fac32e57cd1a4558f994b871d"} // Make sure we are on correct chain after adding LWMA
+, {243273, "1661d23c1baaf489805f68a8fd48736b31b87e8d2960225ff8d9bc1e2600753b"} // Make sure we are on correct chain after adding LWMA
+, {256000, "93ba502fc37a17ca201e23495ce73d69243e1f80ba9a0db064ccfdda510c31ec"}
+, {288000, "a63d4eae1f0e66b97605d098711033b2e3f9c916b8a898b71b090f080d2f41f8"}
+, {301700, "cdfa72ca10f1b3bd0b394fbeb0fc229720693ba0391dbcba9150dcc3aab9997c"} // Just for faster sync...
 };
 
 } // CryptoNote

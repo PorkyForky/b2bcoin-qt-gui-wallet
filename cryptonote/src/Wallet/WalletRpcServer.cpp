@@ -36,10 +36,14 @@ namespace Tools {
 
 const command_line::arg_descriptor<uint16_t> wallet_rpc_server::arg_rpc_bind_port = { "rpc-bind-port", "Starts wallet as rpc server for wallet operations, sets bind port for server", 0, true };
 const command_line::arg_descriptor<std::string> wallet_rpc_server::arg_rpc_bind_ip = { "rpc-bind-ip", "Specify ip to bind rpc server", "127.0.0.1" };
+const command_line::arg_descriptor<std::string> wallet_rpc_server::arg_rpc_password = { "rpc-password", "Specify the password to access the rpc server.", "", true };
+const command_line::arg_descriptor<bool> wallet_rpc_server::arg_rpc_legacy_security = { "rpc-legacy-security", "Enable legacy mode (no password for RPC). WARNING: INSECURE. USE ONLY AS A LAST RESORT.", false};
 
 void wallet_rpc_server::init_options(boost::program_options::options_description& desc) {
   command_line::add_arg(desc, arg_rpc_bind_ip);
   command_line::add_arg(desc, arg_rpc_bind_port);
+  command_line::add_arg(desc, arg_rpc_password);
+  command_line::add_arg(desc, arg_rpc_legacy_security);
 }
 //------------------------------------------------------------------------------------------------------------------------------
 wallet_rpc_server::wallet_rpc_server(
@@ -78,6 +82,10 @@ void wallet_rpc_server::send_stop_signal() {
 bool wallet_rpc_server::handle_command_line(const boost::program_options::variables_map& vm) {
   m_bind_ip = command_line::get_arg(vm, arg_rpc_bind_ip);
   m_port = command_line::get_arg(vm, arg_rpc_bind_port);
+  m_legacy = command_line::get_arg(vm, arg_rpc_legacy_security);
+  if (!m_legacy) {
+    m_password = command_line::get_arg(vm, arg_rpc_password);
+  }
   return true;
 }
 //------------------------------------------------------------------------------------------------------------------------------
@@ -100,12 +108,28 @@ void wallet_rpc_server::processRequest(const CryptoNote::HttpRequest& request, C
   try {
     jsonRequest.parseRequest(request.getBody());
     jsonResponse.setId(jsonRequest.getId());
+    std::string clientPassword;
+
+    if (!m_legacy) {
+      const JsonRpc::OptionalPassword& clientPasswordObject = jsonRequest.getPassword();
+      if (!clientPasswordObject.is_initialized()) {
+        throw JsonRpcError(errInvalidPassword);
+      }
+      if (!clientPasswordObject.get().isString()) {
+        throw JsonRpcError(errInvalidPassword);
+      }
+      clientPassword = clientPasswordObject.get().getString();
+      if (clientPassword != m_password) {
+        throw JsonRpcError(errInvalidPassword);
+      }
+    }
 
     static std::unordered_map<std::string, JsonMemberMethod> s_methods = {
       { "getbalance", makeMemberMethod(&wallet_rpc_server::on_getbalance) },
       { "transfer", makeMemberMethod(&wallet_rpc_server::on_transfer) },
       { "store", makeMemberMethod(&wallet_rpc_server::on_store) },
       { "get_payments", makeMemberMethod(&wallet_rpc_server::on_get_payments) },
+      { "generateRandomPid", makeMemberMethod(&wallet_rpc_server::on_generate_payment_id) },
       { "get_transfers", makeMemberMethod(&wallet_rpc_server::on_get_transfers) },
       { "get_height", makeMemberMethod(&wallet_rpc_server::on_get_height) },
       { "reset", makeMemberMethod(&wallet_rpc_server::on_reset) }
@@ -289,6 +313,13 @@ bool wallet_rpc_server::on_get_height(const wallet_rpc::COMMAND_RPC_GET_HEIGHT::
 
 bool wallet_rpc_server::on_reset(const wallet_rpc::COMMAND_RPC_RESET::request& req, wallet_rpc::COMMAND_RPC_RESET::response& res) {
   m_wallet.reset();
+  return true;
+}
+
+bool wallet_rpc_server::on_generate_payment_id(const wallet_rpc::COMMAND_RPC_GENERATE_PAYMENT_ID::request& req, wallet_rpc::COMMAND_RPC_GENERATE_PAYMENT_ID::response& res) {
+  Crypto::Hash randomPID;
+  randomPID = Crypto::rand<Crypto::Hash>();
+  res.randomPaymentID = Common::podToHex(randomPID);
   return true;
 }
 
