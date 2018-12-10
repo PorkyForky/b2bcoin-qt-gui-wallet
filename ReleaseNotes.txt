@@ -1,3 +1,7 @@
+Release notes 2.0.0 - (10-Dec-2018) (MANDATORY)
+- Added MTP fix for LWMA difficulty algo at height 315000
+- Added wallet burn bug fix 
+
 Release notes 1.0.4 - (26-Nov-2018)
 - Added more checkpoints to sync with the correct chain
 

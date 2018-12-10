@@ -71,9 +71,9 @@ const quint64 DEFAULT_OPTIMIZATION_THRESHOLD = 10000000000000;
 const quint64 DEFAULT_OPTIMIZATION_MIXIN = 0;
 
 const char* VERSION_NAME = "Beyond";
-const quint64 VERSION_MAJOR = 1;
+const quint64 VERSION_MAJOR = 2;
 const quint64 VERSION_MINOR = 0;
-const quint64 VERSION_PATCH = 4;
+const quint64 VERSION_PATCH = 0;
 
 }
 
